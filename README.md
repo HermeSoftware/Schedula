@@ -1,4 +1,4 @@
-# Schedula - Replit Agent Guide
+# Schedula
 
 ## Overview
 
@@ -79,11 +79,6 @@ Preferred communication style: Simple, everyday language.
 - `wouter` — Client-side routing
 - `shadcn/ui` components (Radix UI primitives + Tailwind)
 - `connect-pg-simple` — PostgreSQL session store (available but not actively used yet)
-
-### Replit-Specific
-- `@replit/vite-plugin-runtime-error-modal` — Runtime error overlay in dev
-- `@replit/vite-plugin-cartographer` — Dev tooling (dev only)
-- `@replit/vite-plugin-dev-banner` — Dev banner (dev only)
 
 ### External Services
 - No third-party API integrations are currently active
