@@ -7,10 +7,10 @@ export default function Pricing() {
   const plans = [
     {
       name: "Basic",
-      price: "300",
+      price: "1200",
       description: "Küçük işletmeler ve freelancerlar için.",
       features: [
-        "Aylık 100 Randevu",
+        "Aylık 300 Randevu",
         "Temel Takvim Yönetimi",
         "SMS Bildirimleri",
         "Email Desteği"
@@ -20,10 +20,10 @@ export default function Pricing() {
     },
     {
       name: "Standart",
-      price: "570",
+      price: "3400",
       description: "Büyüyen klinikler ve salonlar için ideal.",
       features: [
-        "Aylık 500 Randevu",
+        "Aylık 1000 Randevu",
         "İptal Analizi Motoru",
         "Boşluk Doldurma (Sınırlı)",
         "WhatsApp Bildirimleri",
@@ -34,7 +34,7 @@ export default function Pricing() {
     },
     {
       name: "Pro",
-      price: "1200",
+      price: "5000",
       description: "Tam kapsamlı optimizasyon isteyenler için.",
       features: [
         "Sınırsız Randevu",
@@ -48,7 +48,7 @@ export default function Pricing() {
     },
     {
       name: "Unlimited",
-      price: "15000",
+      price: "25000",
       description: "Zincir işletmeler ve özel projeler için.",
       isOneTime: true,
       features: [
