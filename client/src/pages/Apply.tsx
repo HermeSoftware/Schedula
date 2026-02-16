@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import Link from "next/link";
 
 export default function Apply() {
   const createMutation = useCreateApplication();
@@ -198,20 +199,18 @@ export default function Apply() {
                 )}
               />
 
-              <Button 
-                type="submit" 
-                className="w-full h-14 bg-primary text-white text-lg rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
-                disabled={createMutation.isPending}
-              >
-                {createMutation.isPending ? (
-                  <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Gönderiliyor...
-                  </>
-                ) : (
-                  "Başvuruyu Gönder"
-                )}
-              </Button>
+   <Button
+  asChild
+  className="w-full h-14 bg-primary text-white text-lg rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+>
+  <a
+    href="https://wa.me/905XXXXXXXXX?text=Merhaba,%20başvuru%20yapmak%20istiyorum."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Başvuruyu Gönder
+  </a>
+</Button>
 
               <p className="text-center text-xs text-gray-400 mt-4">
                 Başvurarak Hizmet Şartları'nı ve Gizlilik Politikası'nı kabul etmiş olursunuz.
