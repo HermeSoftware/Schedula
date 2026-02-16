@@ -1,19 +1,14 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertApplicationSchema, type InsertApplication } from "@shared/schema";
-import { useCreateApplication } from "@/hooks/use-applications";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
-import Link from "next/link";
 
 export default function Apply() {
-  const createMutation = useCreateApplication();
-
   const form = useForm<InsertApplication>({
     resolver: zodResolver(insertApplicationSchema),
     defaultValues: {
@@ -28,9 +23,31 @@ export default function Apply() {
   });
 
   function onSubmit(data: InsertApplication) {
-    createMutation.mutate(data, {
-      onSuccess: () => form.reset()
-    });
+    const phoneNumber = "905442577760";
+
+    const message = `
+📌 Schedula Private Beta Başvuru
+
+🏢 İşletme Adı: ${data.businessName}
+🏷️ Sektör: ${data.sector}
+📊 Aylık Ortalama Randevu: ${data.monthlyAppointments}
+👥 Çalışan Sayısı: ${data.employeeCount}
+
+📧 E-posta: ${data.email}
+📱 Telefon: ${data.phone}
+
+📝 Neden Schedula?
+${data.reason}
+    `;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
+
+    form.reset();
   }
 
   return (
@@ -44,6 +61,7 @@ export default function Apply() {
           >
             Private Beta Başvuru
           </motion.h1>
+
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -63,6 +81,7 @@ export default function Apply() {
         >
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
                   control={form.control}
@@ -77,6 +96,7 @@ export default function Apply() {
                     </FormItem>
                   )}
                 />
+
                 <FormField
                   control={form.control}
                   name="sector"
@@ -127,6 +147,7 @@ export default function Apply() {
                     </FormItem>
                   )}
                 />
+
                 <FormField
                   control={form.control}
                   name="employeeCount"
@@ -166,6 +187,7 @@ export default function Apply() {
                     </FormItem>
                   )}
                 />
+
                 <FormField
                   control={form.control}
                   name="phone"
@@ -199,22 +221,17 @@ export default function Apply() {
                 )}
               />
 
-   <Button
-  asChild
-  className="w-full h-14 bg-primary text-white text-lg rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
->
-  <a
-    href="https://wa.me/905442577760?text=Merhaba,%20başvuru%20yapmak%20istiyorum.
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Başvuruyu Gönder
-  </a>
-</Button>
+              <Button
+                type="submit"
+                className="w-full h-14 bg-primary text-white text-lg rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+              >
+                Başvuruyu Gönder
+              </Button>
 
               <p className="text-center text-xs text-gray-400 mt-4">
                 Başvurarak Hizmet Şartları'nı ve Gizlilik Politikası'nı kabul etmiş olursunuz.
               </p>
+
             </form>
           </Form>
         </motion.div>
