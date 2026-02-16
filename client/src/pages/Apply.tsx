@@ -204,7 +204,7 @@ export default function Apply() {
   className="w-full h-14 bg-primary text-white text-lg rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
 >
   <a
-    href="https://wa.me/905XXXXXXXXX?text=Merhaba,%20başvuru%20yapmak%20istiyorum."
+    href="https://wa.me/905442577760?text=Merhaba,%20başvuru%20yapmak%20istiyorum.
     target="_blank"
     rel="noopener noreferrer"
   >
